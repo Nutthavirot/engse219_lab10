@@ -36,7 +36,7 @@ switch ($method) {
             $id = intval($_GET['id']);
             $data = json_decode(file_get_contents("php://input"), true);
             $stmt = $conn->prepare("UPDATE products SET title=?, price=?, description=?, category=?, rating_rate=?, rating_count=? WHERE id=?");
-            $stmt->bind_param("sdssdi i", 
+            $stmt->bind_param("sdssdii", 
                 $data['title'], 
                 $data['price'], 
                 $data['description'], 
@@ -59,3 +59,4 @@ switch ($method) {
         break;
 }
 ?>
+
